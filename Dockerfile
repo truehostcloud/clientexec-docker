@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM php:latest
 
 ARG GID=100
 ARG UID=101
@@ -11,7 +11,7 @@ RUN apk --no-cache add php81 php81-gd php81-pecl-mcrypt apache2 php81-ctype \
 
 # Download ioncube
 RUN cd /tmp \
-    && curl -sSL https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_aarch64.tar.gz -o ioncube.tar.gz \
+    && curl -sSL https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz -o ioncube.tar.gz \
     && tar -xf ioncube.tar.gz \
     && mv ioncube/ioncube_loader_lin_8.1.so /usr/lib/php81/modules/ioncube_loader_lin_8.1.so \
     && echo 'zend_extension = /usr/lib/php81/modules/ioncube_loader_lin_8.1.so' > /etc/php81/conf.d/00-ioncube.ini \
