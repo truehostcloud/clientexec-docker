@@ -1,4 +1,4 @@
-FROM php:latest
+FROM alpine:latest
 
 ARG GID=100
 ARG UID=101
